@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>70</y>
+      <w>230</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>Item
+--
+ItemID : Int
+UserID : Int
+Title : String
+Content (HTML) : String
+
+Type : String
+
+BidPrice : Int
+BuyoutPrice : Int
+Status : String ( A, H , C)
+
+CreateDate : Date
+LastUpdateDate : Date
+
+EndDate : Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>630</y>
+      <w>240</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Tag
+--
+TagID : Int
+Value : String
+
+Hit : Int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>340</y>
+      <w>240</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>ItemTag
+--
+ItemID : Int
+TagID : Int // 5 tag per item max</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>410</y>
+      <w>230</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Request
+--
+RequestID : Int
+ItemID : Int
+UserID : Int
+
+
+CreateDate : Date
+LastUpdateDate : Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>70</y>
+      <w>230</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>User
+--
+UserID : Int
+Email : String
+Password : String
+
+SellCount : Int
+BuyCount : Int
+GoodRatingCount : Int
+NotGoodRatingCount : Int
+
+CreateDate : Date
+LastUpdateDate : Date
+
+Status : (H, A , C)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>690</y>
+      <w>190</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Buyout
+--
+Price : Int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>690</y>
+      <w>190</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Bid
+--
+Offer : Int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>600</y>
+      <w>90</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>600</y>
+      <w>150</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>100</y>
+      <w>280</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+create &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>350</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+create &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>420</y>
+      <w>100</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+contains &gt;</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>100</y>
+      <w>160</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+contains &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0;120.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>470</y>
+      <w>290</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Message
+--
+MessageID : Int
+ItemID : Int
+UserID : Int
+Seq : Int
+
+CreateDate : Date
+LastUpdateDate : Date</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>320</y>
+      <w>80</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+create &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>510</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+&lt; related</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>0</y>
+      <w>230</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>Image
+--
+imageId : int
+userId : int
+createDate : Date
+
+usingCount : int // will update per minute</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>20</y>
+      <w>780</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+create &gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0;760.0;10.0</additional_attributes>
+  </element>
+</diagram>

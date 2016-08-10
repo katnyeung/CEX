@@ -61,9 +61,9 @@ public interface ItemMapper {
 	public void updateRatingByItemId(@Param("rate") int rate, @Param("itemId") int itemId);
 
 	@Update("INSERT INTO rating_history (itemId,userId,dir) VALUES (#{itemId},#{userId},#{dir})")
-	public void insertRatingHistory(@Param("ratingHistory") RatingHistory ratingHistory);
+	public void insertRatingHistory(RatingHistory ratingHistory);
 
-	@Update("DELETE rating_hisotry WHERE itemId = #{itemId} AND userId = #{userId}")
+	@Update("DELETE FROM rating_history WHERE itemId = #{itemId} AND userId = #{userId}")
 	public void removeRatingHistory(RatingHistory ratingHistory);
 
 	@Update("UPDATE item SET status = #{status} WHERE itemId = #{itemId}")

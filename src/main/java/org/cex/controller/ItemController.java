@@ -1,6 +1,7 @@
 package org.cex.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -178,7 +179,10 @@ public class ItemController {
 
 		item.setBidPrice(-1);
 		item.setBuyoutPrice(itemForm.getBuyoutPrice());
-
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DAY_OF_MONTH, 15);
+		
+		item.setExpiryDate(cal.getTime());
 		// tags
 		String tagsString = itemForm.getTags();
 		String[] tags = tagsString.split(" ");

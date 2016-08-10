@@ -33,7 +33,7 @@ CREATE TABLE `item` (
   `status` varchar(10) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
   `lastupdatedate` datetime DEFAULT NULL,
-  `enddate` datetime DEFAULT NULL,
+  `expirydate` datetime DEFAULT NULL,
   `rating` int(11) DEFAULT 0,
   PRIMARY KEY (`itemId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;

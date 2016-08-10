@@ -18,27 +18,29 @@ div {
 </style>
 <body>
 	<form:form method="post" action="/item/create" modelAttribute="itemForm">
-		<div>
-			Title :
-			<form:input path="title" />
-		</div>
-		<div id="url_content">
-			URL
-			<form:input path="url" />
-		</div>
-		<div id="remark_content">
-			REMARKS
-			<form:textarea path="remark" rows="7" cols="50" />
-		</div>
-		<div>
-			TAGS*
-			<form:input path="tags" />
+		<table cellpadding="10" cellspacing="10">
+			<tr>
+				<td>Title :</td>
+				<td><form:input path="title" style="width:300px" /></td>
+			</tr>
+			<tr>
+				<td>URL :</td>
+				<td><form:input path="url" style="width:400px" /></td>
+			</tr>
+			<tr>
+				<td>REMARKS :</td>
+				<td><form:textarea path="remark" rows="7" cols="50" /></td>
+			</tr>
+			<tr>
+				<td>TAGS* :</td>
+				<td><form:input path="tags" style="width:400px" /></td>
+			</tr>
+			<tr>
+				<td>賣價 (for reference) :</td>
+				<td><form:input path="buyoutPrice" /></td>
+			</tr>
+		</table>
 
-		</div>
-		<div>
-			賣價
-			<form:input path="buyoutPrice" />
-		</div>
 
 		<button type="submit">Create</button>
 

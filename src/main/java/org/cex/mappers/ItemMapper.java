@@ -13,7 +13,7 @@ import org.cex.domain.RatingHistory;
 import org.cex.domain.Tag;
 
 public interface ItemMapper {
-	@Insert("INSERT INTO item(userId,title,url,remark,type,bidprice,buyoutprice,status,createdate,lastupdatedate) VALUES (#{userId},#{title},#{url},#{remark},#{type},#{bidPrice},#{buyoutPrice},#{status},now(),now())")
+	@Insert("INSERT INTO item(userId,title,url,remark,type,bidprice,buyoutprice,status,createdate,lastupdatedate,expirydate) VALUES (#{userId},#{title},#{url},#{remark},#{type},#{bidPrice},#{buyoutPrice},#{status},now(),now(),#{expiryDate})")
 	@Options(useGeneratedKeys = true, keyProperty = "itemId", flushCache = true, keyColumn = "itemId")
 	public int insertItem(Item item);
 
@@ -44,7 +44,7 @@ public interface ItemMapper {
 	@Select("SELECT * FROM tag WHERE value = #{value}")
 	public Tag getTagByValue(String value);
 
-	@Select("SELECT distinct t.tagId, it.itemId,t.value tagValue FROM tag t INNER JOIN item_tag it ON (it.tagId = t.tagId) ORDER BY t.tagId asc")
+	@Select("SELECT distinct t.tagId, it.itemId,t.value tagValue FROM tag t INNER JOIN item_tag it ON (it.tagId = t.tagId) INNER JOIN item i ON (it.itemId = i.itemId) WHERE i.expiryDate > now() ORDER BY t.tagId asc")
 	public List<ItemTag> getAllItemTags();
 
 	/* Rating History */

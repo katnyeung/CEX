@@ -7,8 +7,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.bson.Document;
 import org.cex.domain.ItemTag;
-import org.cex.domain.Tag;
-import org.cex.service.ItemServiceImpl;
+import org.cex.service.ItemService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
@@ -22,9 +21,9 @@ public class SyncTag {
 
 	public static void main(String args[]) {
 
-		ApplicationContext context = new FileSystemXmlApplicationContext("WebContent/WEB-INF/dispatcher-servlet.xml");
+		ApplicationContext context = new FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/dispatcher-servlet.xml");
 
-		ItemServiceImpl itemService = context.getBean(ItemServiceImpl.class);
+		ItemService itemService = context.getBean(ItemService.class);
 
 		List<ItemTag> itemTagList = itemService.getAllItemTags();
 

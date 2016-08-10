@@ -45,11 +45,17 @@
 					$urlPost.attr('rel', value.itemId);
 
 					$urlPost.find('.title').text(value.title);
-					$urlPost.find('.url').attr("href", "/redirect/" + value.itemId + "/?" + value.content);
-					$urlPost.find('.remark').text(value.remark);
-					
+					$urlPost.find('.url').attr("href", "/redirect/" + value.itemId + "/?" + value.url);
+					$urlPost.find('.remark').html(value.remark.replace("\n","<br/>"));
+
 					$urlPost.find('.buyoutPrice').text(value.buyoutPrice);
-					$urlPost.find('.createDate').text(value.createdate);
+					
+					var createDate = new Date(value.createdate);
+					var expiryDate = new Date(value.expirydate);
+					
+					$urlPost.find('.createDate').text(createDate.toString("dd/MM/yyyy HH:mm:SS"));
+					$urlPost.find('.expiryDate').text(expiryDate.toString("dd/MM/yyyy HH:mm:SS"));
+					
 					$urlPost.find('.up').attr("rel", value.itemId);
 					$urlPost.find('.down').attr("rel", (value.itemId * -1));
 
@@ -119,16 +125,19 @@
 							<td><a href="#" class="url"><span class="title"></span></a></td>
 						</tr>
 						<tr>
-							<td>Remark : <span class="remark"></span></td>
+							<td style="padding-top:10px;padding-bottom:10px"><span class="remark"></span></td>
 						</tr>
 						<tr>
-							<td>Buyout Price : <span class="buyoutPrice"></span></td>
+							<td>$ <span class="buyoutPrice"></span></td>
 						</tr>
 						<tr>
-							<td>Create Date : <span class="createDate"></span></td>
+							<td>Create : <span class="createDate"></span></td>
 						</tr>
 						<tr>
-							<td><button>I WANT</button></td>
+							<td>Expiry : <span class="expiryDate"></span></td>
+						</tr>
+						<tr>
+							<td><button>LM</button></td>
 						</tr>
 
 					</table>

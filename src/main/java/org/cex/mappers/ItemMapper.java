@@ -13,7 +13,7 @@ import org.cex.domain.RatingHistory;
 import org.cex.domain.Tag;
 
 public interface ItemMapper {
-	@Insert("INSERT INTO item(userId,title,url,remark,type,bidprice,buyoutprice,status,createdate,lastupdatedate,expirydate) VALUES (#{userId},#{title},#{url},#{remark},#{type},#{bidPrice},#{buyoutPrice},#{status},now(),now(),#{expiryDate})")
+	@Insert("INSERT INTO item(userId,title,url,remark,type,bidprice,buyoutprice,status,createdate,lastupdatedate,expirydate) VALUES (#{userId},#{title},#{url},#{remark},#{type},#{bidPrice},#{buyoutPrice},#{status},now(),now(),#{expirydate})")
 	@Options(useGeneratedKeys = true, keyProperty = "itemId", flushCache = true, keyColumn = "itemId")
 	public int insertItem(Item item);
 

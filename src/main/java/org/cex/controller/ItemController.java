@@ -182,7 +182,7 @@ public class ItemController {
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DAY_OF_MONTH, 15);
 		
-		item.setExpiryDate(cal.getTime());
+		item.setExpirydate(cal.getTime());
 		// tags
 		String tagsString = itemForm.getTags();
 		String[] tags = tagsString.split(" ");

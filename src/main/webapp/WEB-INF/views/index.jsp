@@ -50,11 +50,11 @@
 
 					$urlPost.find('.buyoutPrice').text(value.buyoutPrice);
 					
-					var createDate = new Date(value.createdate);
-					var expiryDate = new Date(value.expirydate);
+					var createDate = new Date(parseInt(value.createdate,10));
+					var expiryDate = new Date(parseInt(value.expirydate,10));
 					
-					$urlPost.find('.createDate').text(createDate.toString("dd/MM/yyyy HH:mm:SS"));
-					$urlPost.find('.expiryDate').text(expiryDate.toString("dd/MM/yyyy HH:mm:SS"));
+					$urlPost.find('.createDate').text(createDate.toLocaleString());
+					$urlPost.find('.expiryDate').text(expiryDate.toLocaleString());
 					
 					$urlPost.find('.up').attr("rel", value.itemId);
 					$urlPost.find('.down').attr("rel", (value.itemId * -1));

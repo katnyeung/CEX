@@ -17,7 +17,7 @@ public class Item {
 	Date createdate;
 	Date lastupdatedate;
 
-	Date expiryDate;
+	Date expirydate;
 
 	List<Tag> tagList;
 
@@ -95,12 +95,12 @@ public class Item {
 		this.lastupdatedate = lastupdatedate;
 	}
 
-	public Date getExpiryDate() {
-		return expiryDate;
+	public Date getExpirydate() {
+		return expirydate;
 	}
 
-	public void setExpiryDate(Date expiryDate) {
-		this.expiryDate = expiryDate;
+	public void setExpirydate(Date expirydate) {
+		this.expirydate = expirydate;
 	}
 
 	public List<Tag> getTagList() {
@@ -137,7 +137,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [itemId=" + itemId + ", userId=" + userId + ", title=" + title + ", remark=" + remark + ", url=" + url + ", type=" + type + ", bidPrice=" + bidPrice + ", buyoutPrice=" + buyoutPrice + ", status=" + status + ", createdate=" + createdate + ", lastupdatedate=" + lastupdatedate + ", expiryDate=" + expiryDate + ", tagList=" + tagList + ", rating=" + rating + "]";
+		return "Item [itemId=" + itemId + ", userId=" + userId + ", title=" + title + ", remark=" + remark + ", url=" + url + ", type=" + type + ", bidPrice=" + bidPrice + ", buyoutPrice=" + buyoutPrice + ", status=" + status + ", createdate=" + createdate + ", lastupdatedate=" + lastupdatedate + ", expirydate=" + expirydate + ", tagList=" + tagList + ", rating=" + rating + "]";
 	}
 
 }

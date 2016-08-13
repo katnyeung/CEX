@@ -15,7 +15,7 @@
 		if (url && window.location.href.indexOf('?') > 0) {
 			var tags = url.toLowerCase().slice(window.location.href.indexOf('?') + 1).split(",");
 			if (tags) {
-				$("#searchTags").val(tags.join(" "));
+				$("#searchTags").val(decodeURIComponent(tags.join(" ")));
 				search(tags);
 			}
 		}
@@ -42,20 +42,21 @@
 
 				$.each(jQuery.parseJSON(data), function(index, value) {
 					var $urlPost = $('#urlResultPattern').clone();
+					$urlPost.attr('id','');
 					$urlPost.attr('rel', value.itemId);
 
 					$urlPost.find('.title').text(value.title);
 					$urlPost.find('.url').attr("href", "/redirect/" + value.itemId + "/?" + value.url);
-					$urlPost.find('.remark').html(value.remark.replace("\n","<br/>"));
+					$urlPost.find('.remark').html(value.remark.replace("\n", "<br/>"));
 
 					$urlPost.find('.buyoutPrice').text(value.buyoutPrice);
-					
-					var createDate = new Date(parseInt(value.createdate,10));
-					var expiryDate = new Date(parseInt(value.expirydate,10));
-					
+
+					var createDate = new Date(parseInt(value.createdate, 10));
+					var expiryDate = new Date(parseInt(value.expirydate, 10));
+
 					$urlPost.find('.createDate').text(createDate.toLocaleString());
 					$urlPost.find('.expiryDate').text(expiryDate.toLocaleString());
-					
+
 					$urlPost.find('.up').attr("rel", value.itemId);
 					$urlPost.find('.down').attr("rel", (value.itemId * -1));
 
@@ -67,6 +68,10 @@
 					});
 
 					$urlPost.find('.rating').text(value.rating);
+
+					$.each(value.tagList, function(index, value) {
+						$urlPost.find('.tags').append("<a href=\"?"+value.value+ "\">" + value.value + "</a>&nbsp;&nbsp;&nbsp;");
+					});
 
 					$("#searchResult").append($urlPost.show());
 
@@ -125,7 +130,7 @@
 							<td><a href="#" class="url"><span class="title"></span></a></td>
 						</tr>
 						<tr>
-							<td style="padding-top:10px;padding-bottom:10px"><span class="remark"></span></td>
+							<td style="padding-top: 10px; padding-bottom: 10px"><span class="remark"></span></td>
 						</tr>
 						<tr>
 							<td>$ <span class="buyoutPrice"></span></td>
@@ -135,6 +140,9 @@
 						</tr>
 						<tr>
 							<td>Expiry : <span class="expiryDate"></span></td>
+						</tr>
+						<tr>
+							<td><span class="tags"></span></td>
 						</tr>
 						<tr>
 							<td><button>LM</button></td>

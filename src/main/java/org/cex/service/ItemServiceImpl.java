@@ -26,6 +26,8 @@ public class ItemServiceImpl implements ItemService {
 	Logger logger = Logger.getLogger(ItemServiceImpl.class);
 
 	MongoClient mongoClient = new MongoClient("localhost", 27017);
+	
+	//MongoClient mongoClient = new MongoClient("localhost", 27017);
 
 	MongoDatabase database = mongoClient.getDatabase("cex");
 
@@ -136,5 +138,9 @@ public class ItemServiceImpl implements ItemService {
 
 	public void updateItemStatus(int itemId, String status) {
 		itemMapper.updateItemStatus(itemId, status);
+	}
+
+	public List<Tag> getTagByItemId(int itemId) {
+		return itemMapper.getTagByItemId(itemId);
 	}
 }

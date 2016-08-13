@@ -39,10 +39,13 @@ public interface ItemMapper {
 	public int insertTag(Tag tag);
 
 	@Select("SELECT * FROM tag WHERE tagId = #{tagId}")
-	public Tag getTagById(int tagId);
+	public Tag getTagById(@Param("tagId") int tagId);
 
 	@Select("SELECT * FROM tag WHERE value = #{value}")
-	public Tag getTagByValue(String value);
+	public Tag getTagByValue(@Param("value") String value);
+
+	@Select("SELECT * FROM tag t INNER JOIN item_tag it ON (t.tagId = it.tagId) WHERE it.itemId = #{itemId}")
+	public List<Tag> getTagByItemId(@Param("itemId") int itemId);
 
 	@Select("SELECT distinct t.tagId, it.itemId,t.value tagValue FROM tag t INNER JOIN item_tag it ON (it.tagId = t.tagId) INNER JOIN item i ON (it.itemId = i.itemId) WHERE i.expiryDate > now() ORDER BY t.tagId asc")
 	public List<ItemTag> getAllItemTags();
@@ -67,6 +70,6 @@ public interface ItemMapper {
 	public void removeRatingHistory(RatingHistory ratingHistory);
 
 	@Update("UPDATE item SET status = #{status} WHERE itemId = #{itemId}")
-	public void updateItemStatus(int itemId, String status);
+	public void updateItemStatus(@Param("itemId") int itemId, @Param("status") String status);
 
 }

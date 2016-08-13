@@ -1,8 +1,6 @@
 
 
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
  http://www.springframework.org/schema/beans
  http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
@@ -13,8 +11,8 @@
 
 	<context:component-scan base-package="org.cex" />
 
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="contentType" value="text/html;charset=UTF-8" />
 		<property name="prefix">
 			<value>/WEB-INF/views/</value>
@@ -36,17 +34,15 @@
 		<property name="basePackage" value="org.cex.mappers" />
 	</bean>
 
-	<bean name="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://localhost:3306/cex?useUnicode=yes&amp;characterEncoding=UTF-8" />
+		<property name="url" value="jdbc:mysql://localhost:3306/cex?useUnicode=yes&amp;characterEncoding=UTF-8" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
 
-	<mvc:resources mapping="/resources/**" location="/resources/"
-		cache-period="31556926" />
+
+	<mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926" />
 
 	<mvc:annotation-driven />
 
@@ -54,7 +50,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/item/*" />
 			<mvc:mapping path="/user/detail/*" />
-			<mvc:exclude-mapping path="/item/rate"/>
+			<mvc:exclude-mapping path="/item/rate" />
 			<bean class="org.cex.interceptor.LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>

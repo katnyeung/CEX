@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.cex.domain.Item;
+import org.cex.domain.Tag;
 import org.cex.domain.User;
 import org.cex.domain.form.LoginForm;
 import org.cex.service.ItemService;
@@ -137,6 +138,11 @@ public class IndexController {
 					itemService.updateRatingByItemIds(Constant.SEARCH_RATING, idList);
 
 					itemList = itemService.getItemsByItemId(idList);
+
+					for (Item item : itemList) {
+						List<Tag> itemTagList = itemService.getTagByItemId(item.getItemId());
+						item.setTagList(itemTagList);
+					}
 				}
 
 			}

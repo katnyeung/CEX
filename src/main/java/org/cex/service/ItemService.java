@@ -22,6 +22,8 @@ public interface ItemService {
 	
 	public Tag getTagByValue(String value);
 
+	public List<Tag> getTagByItemId(int itemId);
+	
 	public List<ItemTag> getAllItemTags();
 
 	public List<Integer> getItemIdByValue(String value);
@@ -37,5 +39,6 @@ public interface ItemService {
 	public void removeRatingHistory(RatingHistory ratingHistory);
 
 	public void insertRequest(Request request);
+
 
 }

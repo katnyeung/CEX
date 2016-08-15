@@ -146,6 +146,7 @@ public class IndexController {
 				}
 
 			}
+			
 			try {
 				OutputStream outputStream = res.getOutputStream();
 

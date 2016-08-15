@@ -58,8 +58,8 @@ DROP TABLE IF EXISTS `rating_history`;
 
 CREATE TABLE `rating_history` (
   `itemId` int(11) DEFAULT NULL,
-  `tagId` int(11) DEFAULT NULL,
-  `type`  varchar(10) DEFAULT NULL
+  `userId` int(11) DEFAULT NULL,
+  `dir`  varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `tag` */
@@ -84,8 +84,8 @@ CREATE TABLE `user` (
   `password` varchar(50) DEFAULT NULL,
   `displayName` varchar(255) DEFAULT NULL,
   `itemCount` int(11) DEFAULT NULL,
-  `goodRatingCount` int(11) DEFAULT NULL,
-  `notGoodRatingCount` int(11) DEFAULT NULL,
+  `buyRating` int(11) DEFAULT NULL,
+  `sellRating` int(11) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
   `lastupdatedate` datetime DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
